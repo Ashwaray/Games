@@ -1,0 +1,11 @@
+Simple Clock widget
+
+A simple clock widget implementation, a learning project.
+Turns out that programming in java is no trivial task,
+so I've tried to make it as modular and as easy to learn from as possible.
+
+Requirements:
+    * Java
+
+TODO:
+    * Have to prepare better GUI for it.
