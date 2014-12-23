@@ -1,0 +1,9 @@
+Jumping mario game on HTML 5 using phase.min.js for physical attributes
+
+I've made this game to learn game development in HTML 5.
+
+Requirements:
+    * phaser.min.js
+
+TODO:
+    * Have to make more stages.
