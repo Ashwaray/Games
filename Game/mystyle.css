@@ -1,14 +1,27 @@
 #para{ 
     color: red;
     text-align: center;
+    text-decoration: underline;
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    margin-bottom: 300px;
+    font-size: 48;
 }
 #bgg {
-    background-color: #000000;
+    background-color: #ffffff;
+}
+#bimg{
+    background-image: url("images/bg.png");
+    background-repeat: no-repeat;
 }
 #bgg2{
 	background-image: url("images/gt.png");
     background-repeat: no-repeat;
     background-position: right top;
     margin-right: 200px;
-    margin-up: 50px;
+    margin-bottom: 50px;
+}
+#game{
+    margin-left: 200px;
+    margin-bottom: 200px;
 }

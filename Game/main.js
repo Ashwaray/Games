@@ -1,19 +1,17 @@
-var game = new Phaser.Game(400, 490, Phaser.AUTO, 'gameDiv');
-
+var game = new Phaser.Game(1500, 500, Phaser.CANVAS, 'gameDiv');
+var count =0;
 var mainState = {
 
     preload: function() { 
-    
-        game.stage.backgroundColor = '#FFFFFF';
+        game.load.image('bg','images/bg.png');
         game.load.image('player', 'images/player.png');  
-        game.load.image('pipe', 'images/pipe.png');      
+        game.load.image('pipe', 'images/pipe.png');    
     },
 
     create: function() { 
+        this.bg= this.game.add.sprite(0,0,'bg'); 
         game.physics.startSystem(Phaser.Physics.ARCADE);
-
-        this.player = this.game.add.sprite(100, 245, 'player');
-        
+        this.player = this.game.add.sprite(100, 245, 'player');     
         game.physics.arcade.enable(this.player);//enabling physical attributes (logan_611)
         this.player.body.gravity.y = 1000; //adding gravity sothat player can fall
 
@@ -23,13 +21,15 @@ var mainState = {
 
         this.pipes = game.add.group();
         this.pipes.enableBody = true;
-        this.pipes.createMultiple(20, 'pipe');  
+        this.pipes.createMultiple(500, 'pipe');  
 
         // Timer that calls 'addRowOfPipes' ever 1.5 seconds
         this.timer = this.game.time.events.loop(1500, this.addRowOfPipes, this);           
 
         this.score = 0;//score
-        this.labelScore = this.game.add.text(20, 20, "0", { font: "30px Arial", fill: "#000000" });  
+        var scr = "score = ";
+        this.scr =this.game.add.text(10,50,scr,{ font: "30px Arial", fill: "#000000" });  
+        this.labelScore = this.game.add.text(135, 50, "0", { font: "30px Arial", fill: "#000000" });  
     },
 
     update: function() {
@@ -58,9 +58,14 @@ var mainState = {
 
         // Add velocity to the pipe to make it move left and up
         var k = this.score/10;
-
+        var t = 20;
         pipe.body.velocity.x = -200-(k*50); 
-        pipe.body.velocity.y = -20;        
+        if(count % 25 == 0){
+            t = t*(-1);
+        }else{
+            count++;
+        }
+        pipe.body.velocity.y = t;  
         pipe.checkWorldBounds = true;
         pipe.outOfBoundsKill = true;
     },
@@ -70,9 +75,9 @@ var mainState = {
         var k = this.score;
         var hole = Math.floor(Math.random()*5)+1;
         if(k >= 0 && k<=50){
-            for (var i = 0; i < 8; i++)
-                if (i != hole && i != hole +1 && i!= hole-1) 
-                    this.addOnePipe(400, i*60+10);   
+            for (var i = 0; i < 25; i++)
+                if (i != hole && i != hole +1 && i!=hole+6 && i!= hole+5) 
+                    this.addOnePipe(1500, i*60+10); 
         }else{
             this.restartGame();  
         }
