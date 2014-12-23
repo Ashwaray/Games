@@ -1,0 +1,13 @@
+#para{ //make its id in tag
+    color: red;
+    text-align: center;
+}
+h1 {
+    background-color: #FFFFFF;
+}
+h2{
+	background-image: url("images/gt.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    margin-right: 200px;
+}

@@ -1,0 +1,14 @@
+#para{ 
+    color: red;
+    text-align: center;
+}
+#bgg {
+    background-color: #000000;
+}
+#bgg2{
+	background-image: url("images/gt.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    margin-right: 200px;
+    margin-up: 50px;
+}

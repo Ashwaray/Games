@@ -57,7 +57,9 @@ var mainState = {
         pipe.reset(x, y);
 
         // Add velocity to the pipe to make it move left and up
-        pipe.body.velocity.x = -200; 
+        var k = this.score/10;
+
+        pipe.body.velocity.x = -200-(k*50); 
         pipe.body.velocity.y = -20;        
         pipe.checkWorldBounds = true;
         pipe.outOfBoundsKill = true;
@@ -67,10 +69,13 @@ var mainState = {
     addRowOfPipes: function() {
         var k = this.score;
         var hole = Math.floor(Math.random()*5)+1;
-        
-        for (var i = 0; i < 8; i++)
-            if (i != hole && i != hole +1 && i!= hole-1) 
-                this.addOnePipe(400, i*60+10);   
+        if(k >= 0 && k<=50){
+            for (var i = 0; i < 8; i++)
+                if (i != hole && i != hole +1 && i!= hole-1) 
+                    this.addOnePipe(400, i*60+10);   
+        }else{
+            this.restartGame();  
+        }
     
         this.score += 1;
         this.labelScore.text = this.score;  
