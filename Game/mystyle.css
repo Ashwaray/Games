@@ -4,8 +4,10 @@
     text-decoration: underline;
     font-family: "Times New Roman", Times, serif;
     font-style: normal;
-    margin-bottom: 300px;
     font-size: 48;
+}
+#para1{
+    margin-bottom : 500px;
 }
 #bgg {
     background-color: #ffffff;
