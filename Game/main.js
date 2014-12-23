@@ -44,7 +44,7 @@ var mainState = {
     jump: function() {
         this.player.body.velocity.y = -350;
     },
-
+    
     restartGame: function() {
         // Start the 'main' state, which restarts the game
         game.state.start('main');
