@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title> Please login </title>
+	</head>
+	<body>
+		{% if form.errors %}
+			<p class = "text-warning"> Your username and password did'nt match
+			{% endif %}
+
+			<form role ="form" class="form-horizontal" method="post" action = "{% url}"
+			{%csrf_token %}
+			{{form}}
+			<input class="btn btn-primary" type="submit" value="Login" />
+			<input class="hidden" name="next" value="{{next}}" />
+			</form>
+		</body>
+</html>
