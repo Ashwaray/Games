@@ -8,3 +8,4 @@ Short games on various platforms like Python, JAVA, HTML5, JAVASCRIPT, etc.
 Requirements :
 Python 2.7
 Phaser library in javascript 
+Please feel free to fork this Repository and send pull request.
